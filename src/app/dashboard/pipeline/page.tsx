@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   DollarSign,
@@ -9,6 +9,7 @@ import {
   Phone,
   Calendar,
   Clock,
+  Check,
 } from "lucide-react";
 import {
   BarChart,
@@ -62,6 +63,18 @@ const cardVariants = {
 
 export default function PipelinePage() {
   const [period, setPeriod] = useState<Period>("30d");
+  const [sentClients, setSentClients] = useState<Record<string, boolean>>({});
+
+  const handleReachOut = useCallback((clientId: string) => {
+    setSentClients((prev) => ({ ...prev, [clientId]: true }));
+    setTimeout(() => {
+      setSentClients((prev) => {
+        const next = { ...prev };
+        delete next[clientId];
+        return next;
+      });
+    }, 2000);
+  }, []);
   const summary = pipelineSummary[period];
   const chartData = getPipelineByPeriod(period);
 
@@ -284,9 +297,27 @@ export default function PipelinePage() {
                       <span className="text-lg font-bold text-primary">
                         {formatFullCurrency(client.estimatedValue)}
                       </span>
-                      <Button size="sm" className="gap-1.5">
-                        <Phone className="h-3.5 w-3.5" />
-                        Reach Out
+                      <Button
+                        size="sm"
+                        className={`gap-1.5 transition-all duration-200 ${
+                          sentClients[client.clientId]
+                            ? "bg-green-600 hover:bg-green-600 text-white"
+                            : ""
+                        }`}
+                        onClick={() => handleReachOut(client.clientId)}
+                        disabled={!!sentClients[client.clientId]}
+                      >
+                        {sentClients[client.clientId] ? (
+                          <>
+                            <Check className="h-3.5 w-3.5" />
+                            Sent ✓
+                          </>
+                        ) : (
+                          <>
+                            <Phone className="h-3.5 w-3.5" />
+                            Reach Out
+                          </>
+                        )}
                       </Button>
                     </div>
                   </CardContent>

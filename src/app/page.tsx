@@ -1,9 +1,14 @@
 import Link from "next/link";
 import { Hero } from "@/components/landing/hero";
+import { SocialProofBar } from "@/components/landing/social-proof-bar";
+import { ProblemSection } from "@/components/landing/problem-section";
+import { HowItWorks } from "@/components/landing/how-it-works";
 import { FeaturesSection } from "@/components/landing/features-section";
-import { PricingSection } from "@/components/landing/pricing-section";
 import { TestimonialsSection } from "@/components/landing/testimonials-section";
+import { PricingSection } from "@/components/landing/pricing-section";
+import { FinalCTA } from "@/components/landing/final-cta";
 import { WaitlistForm } from "@/components/landing/waitlist-form";
+import { TrustBadges } from "@/components/landing/trust-badges";
 
 function Navbar() {
   return (
@@ -143,10 +148,21 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <FeaturesSection />
-        <PricingSection />
+        <SocialProofBar />
+        <ProblemSection />
+        <HowItWorks />
+        <div id="features">
+          <FeaturesSection />
+        </div>
         <TestimonialsSection />
-        <WaitlistForm />
+        <div id="pricing">
+          <PricingSection />
+        </div>
+        <FinalCTA />
+        <div id="waitlist">
+          <WaitlistForm />
+        </div>
+        <TrustBadges />
       </main>
       <Footer />
       <MobileCTA />

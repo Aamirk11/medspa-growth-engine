@@ -6,6 +6,8 @@ import { StatsCard } from "@/components/dashboard/stats-card";
 import { RevenueChart } from "@/components/dashboard/revenue-chart";
 import { MorningBriefing } from "@/components/dashboard/morning-briefing";
 import { QuickActions } from "@/components/dashboard/quick-actions";
+import { RevenueBanner } from "@/components/dashboard/revenue-banner";
+import { ActivityFeed } from "@/components/dashboard/activity-feed";
 import { sparklineData } from "@/lib/mock-data";
 
 const stats = [
@@ -46,6 +48,8 @@ const stats = [
 export default function DashboardPage() {
   return (
     <div className="space-y-6">
+      <RevenueBanner />
+
       <PageHeader
         title="Dashboard"
         subtitle="Welcome back, Dr. Chen"
@@ -81,6 +85,9 @@ export default function DashboardPage() {
         <h2 className="mb-4 text-base font-semibold">Quick Actions</h2>
         <QuickActions />
       </div>
+
+      {/* Activity Feed */}
+      <ActivityFeed />
     </div>
   );
 }

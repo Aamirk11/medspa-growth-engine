@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import {
   Star,
@@ -10,6 +10,7 @@ import {
   Send,
   ShieldCheck,
   CheckCircle2,
+  Check,
   Clock,
   ThumbsUp,
   Minus,
@@ -106,6 +107,18 @@ const cardVariants = {
 
 export default function ReviewsPage() {
   const [visibleCount, setVisibleCount] = useState(15);
+  const [sentRequests, setSentRequests] = useState<Record<string, boolean>>({});
+
+  const handleSendRequest = useCallback((clientId: string) => {
+    setSentRequests((prev) => ({ ...prev, [clientId]: true }));
+    setTimeout(() => {
+      setSentRequests((prev) => {
+        const next = { ...prev };
+        delete next[clientId];
+        return next;
+      });
+    }, 2000);
+  }, []);
   const visibleReviews = reviews.slice(0, visibleCount);
 
   const statsCards = [
@@ -289,8 +302,25 @@ export default function ReviewsPage() {
                         />
                       </div>
                     </div>
-                    <Button size="sm" variant="outline" className="shrink-0 h-8 text-xs">
-                      Send Request
+                    <Button
+                      size="sm"
+                      variant={sentRequests[client.clientId] ? "default" : "outline"}
+                      className={`shrink-0 h-8 text-xs transition-all duration-200 ${
+                        sentRequests[client.clientId]
+                          ? "bg-green-600 hover:bg-green-600 text-white border-green-600"
+                          : ""
+                      }`}
+                      onClick={() => handleSendRequest(client.clientId)}
+                      disabled={!!sentRequests[client.clientId]}
+                    >
+                      {sentRequests[client.clientId] ? (
+                        <>
+                          <Check className="mr-1 h-3 w-3" />
+                          Sent ✓
+                        </>
+                      ) : (
+                        "Send Request"
+                      )}
                     </Button>
                   </div>
                 ))}
