@@ -26,7 +26,7 @@ const itemVariants = {
 
 export function PricingSection() {
   return (
-    <section id="pricing" className="bg-muted/30 py-24 dark:bg-muted/10">
+    <section id="pricing" className="bg-muted/30 py-16 dark:bg-muted/10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div

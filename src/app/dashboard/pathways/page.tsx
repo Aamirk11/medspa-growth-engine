@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ChevronRight, Calendar, User } from "lucide-react";
+import { toast } from "sonner";
 import { PageHeader } from "@/components/shared/page-header";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -74,7 +75,7 @@ export default function PathwaysPage() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <PageHeader
         title="Treatment Pathways"
         subtitle="Monitor rebooking rates and optimize treatment schedules"
@@ -200,7 +201,10 @@ export default function PathwaysPage() {
                                       >
                                         <Link
                                           href={`/dashboard/clients/${client.id}`}
-                                          onClick={(e) => e.stopPropagation()}
+                                          onClick={(e) => {
+                                            e.stopPropagation();
+                                            toast("Viewing client details for " + client.name);
+                                          }}
                                           className="flex items-center justify-between rounded-lg border bg-background px-4 py-3 hover:bg-muted/50 transition-colors"
                                         >
                                           <div className="flex items-center gap-3">

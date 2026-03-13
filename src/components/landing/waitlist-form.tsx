@@ -49,7 +49,7 @@ export function WaitlistForm() {
   return (
     <section
       id="waitlist"
-      className="bg-gradient-to-b from-white via-teal-50/30 to-teal-50 py-24 dark:from-background dark:via-teal-900/10 dark:to-teal-900/20"
+      className="bg-gradient-to-b from-white via-teal-50/30 to-teal-50 py-16 dark:from-background dark:via-teal-900/10 dark:to-teal-900/20"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-xl">

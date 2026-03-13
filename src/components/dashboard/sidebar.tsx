@@ -9,6 +9,7 @@ import {
   DollarSign,
   Star,
   Settings,
+  Users,
   type LucideIcon,
 } from "lucide-react";
 import { NAV_ITEMS } from "@/lib/constants";
@@ -22,6 +23,7 @@ const iconMap: Record<string, LucideIcon> = {
   DollarSign,
   Star,
   Settings,
+  Users,
 };
 
 export function Sidebar() {

@@ -21,7 +21,7 @@ const withItems = [
 
 export function ProblemSection() {
   return (
-    <section className="relative overflow-hidden bg-muted/30 py-24 dark:bg-muted/10">
+    <section className="relative overflow-hidden bg-muted/30 py-16 dark:bg-muted/10">
       {/* Background accents */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-0 top-0 h-full w-1/2 bg-gradient-to-r from-red-50/50 to-transparent dark:from-red-950/10" />

@@ -37,7 +37,7 @@ export function StatsCard({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
     >
-      <Card className="relative overflow-hidden">
+      <Card className="relative overflow-hidden hover:scale-[1.02] hover:shadow-md transition-transform">
         <CardContent className="p-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 text-muted-foreground">

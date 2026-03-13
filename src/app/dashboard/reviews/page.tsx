@@ -154,7 +154,7 @@ export default function ReviewsPage() {
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <PageHeader
         title="Review Harvest"
         subtitle="Monitor reviews and grow your online reputation"

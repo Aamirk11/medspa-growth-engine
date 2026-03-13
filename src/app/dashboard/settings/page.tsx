@@ -12,6 +12,7 @@ import {
   WifiOff,
   User,
 } from "lucide-react";
+import { toast } from "sonner";
 
 import { PageHeader } from "@/components/shared/page-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -107,11 +108,11 @@ export default function SettingsPage() {
   );
 
   const handleSave = () => {
-    // Simulated save action
+    toast.success("Settings saved successfully");
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <PageHeader
         title="Settings"
         subtitle="Manage your practice configuration"
@@ -693,6 +694,7 @@ export default function SettingsPage() {
                                     connected: false,
                                   };
                                   setIntegrationStates(updated);
+                                  toast.success(`${integration.name} disconnected`);
                                 }}
                               >
                                 Disconnect
@@ -707,6 +709,7 @@ export default function SettingsPage() {
                                     connected: true,
                                   };
                                   setIntegrationStates(updated);
+                                  toast.success(`${integration.name} connected successfully`);
                                 }}
                               >
                                 Connect

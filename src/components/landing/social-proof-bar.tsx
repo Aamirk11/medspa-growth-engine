@@ -53,7 +53,7 @@ const itemVariants = {
 
 export function SocialProofBar() {
   return (
-    <section className="relative border-y border-border/40 bg-gradient-to-r from-teal-50/80 via-white to-teal-50/80 py-12 dark:from-teal-950/20 dark:via-background dark:to-teal-950/20">
+    <section className="relative border-y border-border/40 bg-gradient-to-r from-teal-50/80 via-white to-teal-50/80 py-8 dark:from-teal-950/20 dark:via-background dark:to-teal-950/20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}

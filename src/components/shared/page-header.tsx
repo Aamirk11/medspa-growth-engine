@@ -5,7 +5,7 @@ interface PageHeaderProps {
 
 export function PageHeader({ title, subtitle }: PageHeaderProps) {
   return (
-    <div className="mb-6">
+    <div className="mb-4">
       <h1 className="text-2xl font-bold tracking-tight">{title}</h1>
       {subtitle && (
         <p className="text-muted-foreground mt-1">{subtitle}</p>

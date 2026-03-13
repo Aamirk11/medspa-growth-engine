@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export function FinalCTA() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-teal-600 via-teal-700 to-teal-800 py-24">
+    <section className="relative overflow-hidden bg-gradient-to-br from-teal-600 via-teal-700 to-teal-800 py-16">
       {/* Decorative elements */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -left-20 -top-20 h-80 w-80 rounded-full bg-teal-500/20 blur-3xl" />
@@ -70,7 +70,7 @@ export function FinalCTA() {
           className="mt-10"
         >
           <Link
-            href="/dashboard"
+            href="/onboarding"
             className="group inline-flex h-14 items-center justify-center gap-2 rounded-xl bg-white px-8 text-base font-bold text-teal-700 shadow-xl shadow-black/15 transition-all duration-200 hover:bg-amber-50 hover:shadow-2xl hover:shadow-black/20"
           >
             Start Your Free 14-Day Trial

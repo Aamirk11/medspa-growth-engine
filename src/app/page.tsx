@@ -9,6 +9,7 @@ import { PricingSection } from "@/components/landing/pricing-section";
 import { FinalCTA } from "@/components/landing/final-cta";
 import { WaitlistForm } from "@/components/landing/waitlist-form";
 import { TrustBadges } from "@/components/landing/trust-badges";
+import { Footer } from "@/components/landing/footer";
 
 function Navbar() {
   return (
@@ -73,59 +74,6 @@ function Navbar() {
         </div>
       </div>
     </nav>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="border-t border-border/40 bg-muted/30 dark:bg-muted/10">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <div className="flex items-center gap-2">
-            <div className="flex h-7 w-7 items-center justify-center rounded-md bg-teal-600 dark:bg-teal-500">
-              <svg
-                className="size-4 text-white"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-              </svg>
-            </div>
-            <span className="text-sm font-semibold text-foreground">
-              MedSpa Growth Engine
-            </span>
-          </div>
-          <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} MedSpa Growth Engine. All rights
-            reserved.
-          </p>
-          <div className="flex gap-6">
-            <a
-              href="#"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Privacy
-            </a>
-            <a
-              href="#"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Terms
-            </a>
-            <a
-              href="#"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              HIPAA
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
   );
 }
 

@@ -17,7 +17,7 @@ const fadeInUp = {
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-teal-50 via-teal-50/50 to-white pb-20 pt-32 dark:from-teal-900/20 dark:via-background dark:to-background">
+    <section className="relative overflow-hidden bg-gradient-to-b from-teal-50 via-teal-50/50 to-white pb-14 pt-28 dark:from-teal-900/20 dark:via-background dark:to-background">
       {/* Decorative elements */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute -right-40 -top-40 h-[500px] w-[500px] rounded-full bg-teal-200/30 blur-3xl dark:bg-teal-800/10" />
@@ -102,7 +102,7 @@ export function Hero() {
             <Button
               size="lg"
               className="h-12 gap-2 rounded-full bg-teal-600 px-8 text-base font-semibold text-white shadow-lg shadow-teal-600/25 hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-600"
-              render={<Link href="/dashboard" />}
+              render={<Link href="/onboarding" />}
             >
               Start Free Trial
               <ArrowRight className="size-4" />

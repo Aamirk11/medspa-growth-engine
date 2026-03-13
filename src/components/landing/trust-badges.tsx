@@ -28,7 +28,7 @@ const badgeVariants = {
 
 export function TrustBadges() {
   return (
-    <section className="border-t border-border/40 bg-muted/20 py-10 dark:bg-muted/5">
+    <section className="border-t border-border/40 bg-muted/20 py-6 dark:bg-muted/5">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}

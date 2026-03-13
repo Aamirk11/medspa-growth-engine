@@ -15,6 +15,7 @@ import {
   Users,
   DollarSign,
 } from "lucide-react";
+import { toast } from "sonner";
 import { PageHeader } from "@/components/shared/page-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -212,11 +213,21 @@ export default function ClientDetailPage({
                 <Separator className="my-4" />
 
                 <div className="flex gap-2">
-                  <Button variant="outline" className="flex-1" size="sm">
+                  <Button
+                    variant="outline"
+                    className="flex-1"
+                    size="sm"
+                    onClick={() => toast.success(`SMS sent to ${client.name}`)}
+                  >
                     <Phone className="mr-2 h-4 w-4" />
                     Send SMS
                   </Button>
-                  <Button variant="outline" className="flex-1" size="sm">
+                  <Button
+                    variant="outline"
+                    className="flex-1"
+                    size="sm"
+                    onClick={() => toast.success(`Email sent to ${client.name}`)}
+                  >
                     <Mail className="mr-2 h-4 w-4" />
                     Send Email
                   </Button>
@@ -365,10 +376,17 @@ export default function ClientDetailPage({
                 </Tabs>
 
                 <div className="flex gap-2 mt-4">
-                  <Button className="flex-1 bg-primary hover:bg-primary/90">
+                  <Button
+                    className="flex-1 bg-primary hover:bg-primary/90"
+                    onClick={() => toast.success(`Message sent to ${client.name}`)}
+                  >
                     Send Message
                   </Button>
-                  <Button variant="outline" className="flex-1">
+                  <Button
+                    variant="outline"
+                    className="flex-1"
+                    onClick={() => toast("Opening editor...")}
+                  >
                     Edit
                   </Button>
                 </div>

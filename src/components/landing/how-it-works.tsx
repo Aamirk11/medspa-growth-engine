@@ -47,7 +47,7 @@ const stepVariants = {
 
 export function HowItWorks() {
   return (
-    <section className="relative overflow-hidden bg-white py-24 dark:bg-background">
+    <section className="relative overflow-hidden bg-white py-16 dark:bg-background">
       {/* Subtle background pattern */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(13,148,136,0.04),transparent_60%)]" />
 

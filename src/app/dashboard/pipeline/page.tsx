@@ -106,7 +106,7 @@ export default function PipelinePage() {
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <PageHeader
         title="Revenue Pipeline"
         subtitle="Track projected revenue and at-risk bookings"

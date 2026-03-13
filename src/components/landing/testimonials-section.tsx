@@ -52,7 +52,7 @@ const itemVariants = {
 
 export function TestimonialsSection() {
   return (
-    <section className="bg-white py-24 dark:bg-background">
+    <section className="bg-white py-16 dark:bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
