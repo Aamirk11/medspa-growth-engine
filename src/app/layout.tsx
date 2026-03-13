@@ -15,9 +15,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "MedSpa Growth Engine | AI-Powered Revenue Acceleration",
+  title: {
+    default: "MedSpa Growth Engine | AI-Powered Revenue Acceleration",
+    template: "%s | MedSpa Growth Engine",
+  },
   description:
     "Stop losing revenue to missed rebookings. AI-powered treatment pathway intelligence for medical spas.",
+  keywords: ["medspa", "medical spa", "revenue", "rebooking", "AI", "client retention"],
+  authors: [{ name: "MedSpa Growth Engine" }],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "MedSpa Growth Engine",
+  },
 };
 
 export default function RootLayout({

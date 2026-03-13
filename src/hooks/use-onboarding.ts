@@ -19,16 +19,21 @@ export function useOnboarding() {
   const [data, setData] = useState<OnboardingData | null>(null);
 
   useEffect(() => {
-    const complete = localStorage.getItem(ONBOARDING_COMPLETE_KEY) === "true";
-    setIsComplete(complete);
-    const stored = localStorage.getItem(ONBOARDING_DATA_KEY);
-    if (stored) {
-      try {
-        setData(JSON.parse(stored));
-      } catch {
-        setData(null);
+    const loadOnboardingState = () => {
+      const complete = localStorage.getItem(ONBOARDING_COMPLETE_KEY) === "true";
+      const stored = localStorage.getItem(ONBOARDING_DATA_KEY);
+      let parsedData: OnboardingData | null = null;
+      if (stored) {
+        try {
+          parsedData = JSON.parse(stored);
+        } catch {
+          parsedData = null;
+        }
       }
-    }
+      setIsComplete(complete);
+      setData(parsedData);
+    };
+    loadOnboardingState();
   }, []);
 
   const completeOnboarding = useCallback((onboardingData: OnboardingData) => {

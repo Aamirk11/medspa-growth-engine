@@ -17,13 +17,16 @@ export default function DashboardLayout({
   const [checking, setChecking] = useState(true);
 
   useEffect(() => {
-    const complete =
-      localStorage.getItem("medspa-onboarding-complete") === "true";
-    if (!complete) {
-      router.push("/onboarding");
-    } else {
-      setChecking(false);
-    }
+    const checkOnboarding = () => {
+      const complete =
+        localStorage.getItem("medspa-onboarding-complete") === "true";
+      if (!complete) {
+        router.push("/onboarding");
+      } else {
+        setChecking(false);
+      }
+    };
+    checkOnboarding();
   }, [router]);
 
   if (checking) {

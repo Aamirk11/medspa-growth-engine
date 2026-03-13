@@ -10,7 +10,6 @@ import {
   Save,
   Wifi,
   WifiOff,
-  User,
 } from "lucide-react";
 import { toast } from "sonner";
 

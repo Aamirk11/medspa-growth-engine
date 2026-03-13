@@ -76,6 +76,7 @@ export function RoiCalculator() {
                 step={50}
                 value={clients}
                 onChange={setClients}
+                aria-label="Monthly clients"
               />
               <div className="mt-1 flex justify-between text-xs text-muted-foreground">
                 <span>100</span>
@@ -99,6 +100,7 @@ export function RoiCalculator() {
                 step={25}
                 value={avgValue}
                 onChange={setAvgValue}
+                aria-label="Average treatment value"
               />
               <div className="mt-1 flex justify-between text-xs text-muted-foreground">
                 <span>$100</span>
@@ -122,6 +124,7 @@ export function RoiCalculator() {
                 step={1}
                 value={rebookingRate}
                 onChange={setRebookingRate}
+                aria-label="Current rebooking rate"
               />
               <div className="mt-1 flex justify-between text-xs text-muted-foreground">
                 <span>20%</span>

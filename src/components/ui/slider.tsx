@@ -10,10 +10,11 @@ interface SliderProps {
   value: number;
   onChange: (value: number) => void;
   className?: string;
+  "aria-label"?: string;
 }
 
 const Slider = React.forwardRef<HTMLInputElement, SliderProps>(
-  ({ min, max, step = 1, value, onChange, className }, ref) => {
+  ({ min, max, step = 1, value, onChange, className, "aria-label": ariaLabel }, ref) => {
     const percentage = ((value - min) / (max - min)) * 100;
 
     return (
@@ -26,6 +27,7 @@ const Slider = React.forwardRef<HTMLInputElement, SliderProps>(
           step={step}
           value={value}
           onChange={(e) => onChange(Number(e.target.value))}
+          aria-label={ariaLabel}
           className="slider-input h-2 w-full cursor-pointer appearance-none rounded-full bg-muted outline-none"
           style={{
             background: `linear-gradient(to right, #0D9488 0%, #0D9488 ${percentage}%, hsl(var(--muted)) ${percentage}%, hsl(var(--muted)) 100%)`,

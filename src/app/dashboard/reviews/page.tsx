@@ -31,7 +31,6 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Progress } from "@/components/ui/progress";
 import { toast } from "sonner";
-import { CHART_COLORS } from "@/lib/constants";
 import { reviews, reviewStats, readyToAskClients } from "@/lib/mock-data";
 
 const platformConfig: Record<

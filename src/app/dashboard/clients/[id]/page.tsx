@@ -41,19 +41,19 @@ function getRiskBadge(risk: "low" | "medium" | "high") {
   switch (risk) {
     case "low":
       return (
-        <Badge className="bg-green-100 text-green-700 border-green-300">
+        <Badge className="bg-green-100 text-green-700 border-green-300 dark:bg-green-900/30 dark:text-green-400 dark:border-green-700">
           Low Risk
         </Badge>
       );
     case "medium":
       return (
-        <Badge className="bg-yellow-100 text-yellow-700 border-yellow-300">
+        <Badge className="bg-yellow-100 text-yellow-700 border-yellow-300 dark:bg-yellow-900/30 dark:text-yellow-400 dark:border-yellow-700">
           Medium Risk
         </Badge>
       );
     case "high":
       return (
-        <Badge className="bg-red-100 text-red-700 border-red-300">
+        <Badge className="bg-red-100 text-red-700 border-red-300 dark:bg-red-900/30 dark:text-red-400 dark:border-red-700">
           High Risk
         </Badge>
       );
@@ -252,10 +252,10 @@ export default function ClientDetailPage({
                 <div
                   className={`rounded-lg p-4 mb-4 ${
                     isOverdue
-                      ? "bg-red-50 border border-red-200"
+                      ? "bg-red-50 border border-red-200 dark:bg-red-900/20 dark:border-red-800"
                       : isDueSoon
-                        ? "bg-amber-50 border border-amber-200"
-                        : "bg-green-50 border border-green-200"
+                        ? "bg-amber-50 border border-amber-200 dark:bg-amber-900/20 dark:border-amber-800"
+                        : "bg-green-50 border border-green-200 dark:bg-green-900/20 dark:border-green-800"
                   }`}
                 >
                   <div className="flex items-center gap-3">
@@ -270,10 +270,10 @@ export default function ClientDetailPage({
                       <p
                         className={`font-semibold text-sm ${
                           isOverdue
-                            ? "text-red-700"
+                            ? "text-red-700 dark:text-red-400"
                             : isDueSoon
-                              ? "text-amber-700"
-                              : "text-green-700"
+                              ? "text-amber-700 dark:text-amber-400"
+                              : "text-green-700 dark:text-green-400"
                         }`}
                       >
                         {isOverdue
@@ -591,7 +591,7 @@ export default function ClientDetailPage({
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="flex items-center justify-between rounded-lg border border-teal-200 bg-white/80 dark:bg-background/50 p-4">
+                <div className="flex items-center justify-between rounded-lg border border-teal-200 bg-white/80 dark:border-teal-800 dark:bg-background/50 p-4">
                   <div className="space-y-1">
                     <p className="font-semibold text-teal-700 dark:text-teal-400">
                       {client.preferredTreatment}
