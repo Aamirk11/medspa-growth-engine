@@ -62,12 +62,16 @@ export function SocialProofBar() {
           viewport={{ once: true, margin: "-50px" }}
           className="grid grid-cols-2 gap-8 md:grid-cols-4"
         >
-          {stats.map((stat) => (
+          {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
               variants={itemVariants}
-              className="flex flex-col items-center text-center"
+              className="relative flex flex-col items-center text-center"
             >
+              {/* Vertical separator */}
+              {index > 0 && (
+                <div className="absolute -left-4 top-1/2 hidden h-12 w-px -translate-y-1/2 bg-gradient-to-b from-transparent via-border to-transparent md:block" />
+              )}
               <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-teal-100/80 dark:bg-teal-900/40">
                 <stat.icon className="h-5 w-5 text-teal-600 dark:text-teal-400" />
               </div>

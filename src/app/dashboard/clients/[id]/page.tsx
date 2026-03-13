@@ -14,6 +14,8 @@ import {
   CalendarDays,
   Users,
   DollarSign,
+  Heart,
+  TrendingUp,
 } from "lucide-react";
 import { toast } from "sonner";
 import { PageHeader } from "@/components/shared/page-header";
@@ -307,6 +309,72 @@ export default function ClientDetailPage({
             </Card>
           </motion.div>
 
+          {/* Client Health Score */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: 0.15 }}
+          >
+            <Card>
+              <CardHeader className="pb-3">
+                <CardTitle className="text-base flex items-center gap-2">
+                  <Heart className="h-4 w-4 text-rose-500" />
+                  Client Health Score
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                {(() => {
+                  const score = client.riskLevel === "low" ? 92 : client.riskLevel === "medium" ? 68 : 35;
+                  const color = score >= 80 ? "text-green-600" : score >= 50 ? "text-amber-600" : "text-red-600";
+                  const ringColor = score >= 80 ? "stroke-green-500" : score >= 50 ? "stroke-amber-500" : "stroke-red-500";
+                  const label = score >= 80 ? "Excellent" : score >= 50 ? "Needs Attention" : "At Risk";
+                  return (
+                    <div className="flex items-center gap-6">
+                      <div className="relative h-24 w-24 flex-shrink-0">
+                        <svg className="h-24 w-24 -rotate-90" viewBox="0 0 100 100">
+                          <circle
+                            cx="50" cy="50" r="42"
+                            fill="none"
+                            strokeWidth="8"
+                            className="stroke-muted"
+                          />
+                          <circle
+                            cx="50" cy="50" r="42"
+                            fill="none"
+                            strokeWidth="8"
+                            strokeLinecap="round"
+                            strokeDasharray={`${score * 2.64} ${264 - score * 2.64}`}
+                            className={ringColor}
+                          />
+                        </svg>
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <span className={`text-xl font-bold ${color}`}>{score}</span>
+                        </div>
+                      </div>
+                      <div className="space-y-1.5">
+                        <p className={`font-semibold ${color}`}>{label}</p>
+                        <div className="space-y-1 text-xs text-muted-foreground">
+                          <p className="flex items-center gap-1.5">
+                            <TrendingUp className="h-3 w-3" />
+                            {client.totalVisits} visits completed
+                          </p>
+                          <p className="flex items-center gap-1.5">
+                            <DollarSign className="h-3 w-3" />
+                            {formatCurrency(client.lifetimeValue)} lifetime value
+                          </p>
+                          <p className="flex items-center gap-1.5">
+                            <CalendarDays className="h-3 w-3" />
+                            {isOverdue ? `${Math.abs(daysUntil)}d overdue` : `Next in ${daysUntil}d`}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })()}
+              </CardContent>
+            </Card>
+          </motion.div>
+
           {/* AI Message Preview Card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -506,6 +574,42 @@ export default function ClientDetailPage({
                     </TableRow>
                   </TableFooter>
                 </Table>
+              </CardContent>
+            </Card>
+          </motion.div>
+          {/* Recommended Next */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: 0.35 }}
+          >
+            <Card className="border-teal-200 bg-gradient-to-br from-teal-50 to-white dark:border-teal-800 dark:from-teal-950/20 dark:to-background">
+              <CardHeader>
+                <CardTitle className="text-base flex items-center gap-2">
+                  <Sparkles className="h-4 w-4 text-teal-600" />
+                  Recommended Next Treatment
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center justify-between rounded-lg border border-teal-200 bg-white/80 dark:bg-background/50 p-4">
+                  <div className="space-y-1">
+                    <p className="font-semibold text-teal-700 dark:text-teal-400">
+                      {client.preferredTreatment}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Based on treatment history and optimal scheduling
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      Optimal date: {formatDate(client.nextOptimalDate)}
+                    </p>
+                  </div>
+                  <Button
+                    className="bg-teal-600 hover:bg-teal-700 text-white shrink-0 ml-4"
+                    onClick={() => toast.success(`Booking ${client.preferredTreatment} for ${client.name}`)}
+                  >
+                    Book Now
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           </motion.div>

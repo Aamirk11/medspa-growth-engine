@@ -27,6 +27,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 import { CHART_COLORS } from "@/lib/constants";
 import {
   getPipelineByPeriod,
@@ -65,8 +66,9 @@ export default function PipelinePage() {
   const [period, setPeriod] = useState<Period>("30d");
   const [sentClients, setSentClients] = useState<Record<string, boolean>>({});
 
-  const handleReachOut = useCallback((clientId: string) => {
+  const handleReachOut = useCallback((clientId: string, clientName: string) => {
     setSentClients((prev) => ({ ...prev, [clientId]: true }));
+    toast.success(`Contacting ${clientName}...`);
     setTimeout(() => {
       setSentClients((prev) => {
         const next = { ...prev };
@@ -259,7 +261,7 @@ export default function PipelinePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 + i * 0.05, duration: 0.3 }}
               >
-                <Card className="transition-shadow hover:shadow-md">
+                <Card className="transition-all duration-200 hover:shadow-md hover:border-primary/20">
                   <CardContent className="p-5">
                     <div className="flex items-start justify-between">
                       <div className="space-y-1">
@@ -294,30 +296,50 @@ export default function PipelinePage() {
                     </div>
 
                     <div className="mt-4 flex items-center justify-between">
-                      <span className="text-lg font-bold text-primary">
+                      <span className="text-2xl font-bold text-primary">
                         {formatFullCurrency(client.estimatedValue)}
                       </span>
+                    </div>
+
+                    <div className="mt-3 flex items-center gap-2">
                       <Button
                         size="sm"
-                        className={`gap-1.5 transition-all duration-200 ${
+                        className={`gap-1.5 flex-1 transition-all duration-200 ${
                           sentClients[client.clientId]
                             ? "bg-green-600 hover:bg-green-600 text-white"
                             : ""
                         }`}
-                        onClick={() => handleReachOut(client.clientId)}
+                        onClick={() => handleReachOut(client.clientId, client.clientName)}
                         disabled={!!sentClients[client.clientId]}
                       >
                         {sentClients[client.clientId] ? (
                           <>
                             <Check className="h-3.5 w-3.5" />
-                            Sent ✓
+                            Sent
                           </>
                         ) : (
                           <>
                             <Phone className="h-3.5 w-3.5" />
-                            Reach Out
+                            Contact
                           </>
                         )}
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="gap-1.5"
+                        onClick={() => toast.success("Scheduling follow-up...")}
+                      >
+                        <Calendar className="h-3.5 w-3.5" />
+                        Schedule
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="ghost"
+                        className="gap-1.5 text-muted-foreground"
+                        onClick={() => toast.success("Marked as complete")}
+                      >
+                        <Check className="h-3.5 w-3.5" />
                       </Button>
                     </div>
                   </CardContent>

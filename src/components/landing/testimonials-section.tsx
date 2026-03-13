@@ -83,8 +83,12 @@ export function TestimonialsSection() {
         >
           {testimonials.map((testimonial) => (
             <motion.div key={testimonial.name} variants={itemVariants}>
-              <Card className="h-full border-border/50 bg-card">
-                <CardContent className="flex h-full flex-col gap-6 pt-6">
+              <Card className="group relative h-full overflow-hidden border-border/50 bg-card transition-shadow duration-300 hover:shadow-lg hover:shadow-teal-500/5">
+                {/* Decorative quote mark */}
+                <div className="pointer-events-none absolute -right-2 -top-2 select-none text-[120px] font-serif leading-none text-teal-100/60 dark:text-teal-800/20">
+                  &ldquo;
+                </div>
+                <CardContent className="relative flex h-full flex-col gap-6 pt-6">
                   {/* Stars */}
                   <div className="flex gap-1">
                     {Array.from({ length: testimonial.stars }).map((_, i) => (
@@ -102,7 +106,7 @@ export function TestimonialsSection() {
 
                   {/* Author */}
                   <div className="flex items-center gap-3 border-t border-border/50 pt-4">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-teal-100 text-sm font-semibold text-teal-700 dark:bg-teal-900/40 dark:text-teal-300">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-teal-400 to-teal-600 text-sm font-semibold text-white shadow-sm dark:from-teal-500 dark:to-teal-700">
                       {testimonial.initials}
                     </div>
                     <div>

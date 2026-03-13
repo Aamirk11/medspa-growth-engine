@@ -2,13 +2,17 @@ import Link from "next/link";
 import { Hero } from "@/components/landing/hero";
 import { SocialProofBar } from "@/components/landing/social-proof-bar";
 import { ProblemSection } from "@/components/landing/problem-section";
+import { RevenuLeakDiagram } from "@/components/landing/revenue-leak-diagram";
 import { HowItWorks } from "@/components/landing/how-it-works";
+import { BeforeAfter } from "@/components/landing/before-after";
 import { FeaturesSection } from "@/components/landing/features-section";
 import { TestimonialsSection } from "@/components/landing/testimonials-section";
+import { RoiCalculator } from "@/components/landing/roi-calculator";
 import { PricingSection } from "@/components/landing/pricing-section";
 import { FinalCTA } from "@/components/landing/final-cta";
 import { WaitlistForm } from "@/components/landing/waitlist-form";
 import { TrustBadges } from "@/components/landing/trust-badges";
+import { IntegrationsBar } from "@/components/landing/integrations-bar";
 import { Footer } from "@/components/landing/footer";
 
 function Navbar() {
@@ -97,12 +101,16 @@ export default function Home() {
       <main>
         <Hero />
         <SocialProofBar />
+        <IntegrationsBar />
         <ProblemSection />
+        <RevenuLeakDiagram />
         <HowItWorks />
+        <BeforeAfter />
         <div id="features">
           <FeaturesSection />
         </div>
         <TestimonialsSection />
+        <RoiCalculator />
         <div id="pricing">
           <PricingSection />
         </div>

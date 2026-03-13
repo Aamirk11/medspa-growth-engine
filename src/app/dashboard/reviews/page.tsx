@@ -30,6 +30,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Progress } from "@/components/ui/progress";
+import { toast } from "sonner";
 import { CHART_COLORS } from "@/lib/constants";
 import { reviews, reviewStats, readyToAskClients } from "@/lib/mock-data";
 
@@ -109,8 +110,9 @@ export default function ReviewsPage() {
   const [visibleCount, setVisibleCount] = useState(15);
   const [sentRequests, setSentRequests] = useState<Record<string, boolean>>({});
 
-  const handleSendRequest = useCallback((clientId: string) => {
+  const handleSendRequest = useCallback((clientId: string, clientName: string) => {
     setSentRequests((prev) => ({ ...prev, [clientId]: true }));
+    toast.success(`Review request sent to ${clientName}`);
     setTimeout(() => {
       setSentRequests((prev) => {
         const next = { ...prev };
@@ -119,6 +121,15 @@ export default function ReviewsPage() {
       });
     }, 2000);
   }, []);
+
+  const handleBulkRequest = useCallback(() => {
+    const unsent = readyToAskClients.filter((c) => !sentRequests[c.clientId]);
+    unsent.forEach((c) => setSentRequests((prev) => ({ ...prev, [c.clientId]: true })));
+    toast.success(`Review requests sent to ${unsent.length} clients`);
+    setTimeout(() => {
+      setSentRequests({});
+    }, 2000);
+  }, [sentRequests]);
   const visibleReviews = reviews.slice(0, visibleCount);
 
   const statsCards = [
@@ -203,7 +214,7 @@ export default function ReviewsPage() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.03, duration: 0.3 }}
                 >
-                  <Card className="transition-shadow hover:shadow-md">
+                  <Card className="transition-all duration-200 hover:shadow-md hover:border-primary/20">
                     <CardContent className="p-4">
                       <div className="flex flex-wrap items-start justify-between gap-2">
                         <div className="flex items-center gap-3">
@@ -246,6 +257,27 @@ export default function ReviewsPage() {
                           })}
                         </span>
                       </div>
+
+                      <div className="mt-3 flex items-center gap-2">
+                        {!review.responded && (
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            className="h-7 text-xs"
+                            onClick={() => toast.success("Reply sent")}
+                          >
+                            Reply
+                          </Button>
+                        )}
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          className="h-7 text-xs text-muted-foreground"
+                          onClick={() => toast("Review dismissed")}
+                        >
+                          Dismiss
+                        </Button>
+                      </div>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -283,6 +315,14 @@ export default function ReviewsPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
+                <Button
+                  size="sm"
+                  className="w-full mb-2"
+                  onClick={handleBulkRequest}
+                >
+                  <Send className="mr-2 h-3.5 w-3.5" />
+                  Request All ({readyToAskClients.length})
+                </Button>
                 {readyToAskClients.map((client) => (
                   <div
                     key={client.clientId}
@@ -310,7 +350,7 @@ export default function ReviewsPage() {
                           ? "bg-green-600 hover:bg-green-600 text-white border-green-600"
                           : ""
                       }`}
-                      onClick={() => handleSendRequest(client.clientId)}
+                      onClick={() => handleSendRequest(client.clientId, client.clientName)}
                       disabled={!!sentRequests[client.clientId]}
                     >
                       {sentRequests[client.clientId] ? (

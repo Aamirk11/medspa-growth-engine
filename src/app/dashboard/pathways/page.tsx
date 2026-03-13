@@ -55,6 +55,19 @@ function getCategoryVariant(category: string): "default" | "secondary" | "outlin
   }
 }
 
+function getCategoryBorderColor(category: string): string {
+  switch (category) {
+    case "Injectables":
+      return "border-l-4 border-l-teal-500";
+    case "Skin":
+      return "border-l-4 border-l-amber-500";
+    case "Body":
+      return "border-l-4 border-l-purple-500";
+    default:
+      return "border-l-4 border-l-gray-400";
+  }
+}
+
 export default function PathwaysPage() {
   const [activeCategory, setActiveCategory] = useState<Category>("All");
   const [expandedRow, setExpandedRow] = useState<string | null>(null);
@@ -169,7 +182,7 @@ export default function PathwaysPage() {
                             transition={{ duration: 0.3, ease: "easeInOut" }}
                             className="overflow-hidden"
                           >
-                            <div className="bg-muted/30 px-8 py-4 border-t">
+                            <div className={`bg-muted/30 px-8 py-4 border-t ${getCategoryBorderColor(treatment.category)}`}>
                               <h4 className="text-sm font-semibold mb-3 text-muted-foreground">
                                 Top Clients for {treatment.name}
                               </h4>
@@ -205,7 +218,7 @@ export default function PathwaysPage() {
                                             e.stopPropagation();
                                             toast("Viewing client details for " + client.name);
                                           }}
-                                          className="flex items-center justify-between rounded-lg border bg-background px-4 py-3 hover:bg-muted/50 transition-colors"
+                                          className="flex items-center justify-between rounded-lg border bg-background px-4 py-3 hover:bg-muted/50 hover:shadow-sm hover:border-primary/20 transition-all duration-200"
                                         >
                                           <div className="flex items-center gap-3">
                                             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary text-xs font-semibold">
