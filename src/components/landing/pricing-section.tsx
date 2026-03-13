@@ -53,7 +53,7 @@ export function PricingSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="mt-16 grid gap-8 lg:grid-cols-3"
+          className="mt-10 grid gap-8 lg:grid-cols-3"
         >
           {PRICING_TIERS.map((tier) => (
             <motion.div key={tier.name} variants={itemVariants}>
@@ -113,7 +113,7 @@ export function PricingSection() {
                         : "h-11"
                     }`}
                     variant={tier.highlighted ? "default" : "outline"}
-                    render={<Link href={tier.name === "Enterprise" ? "#waitlist" : "/dashboard"} />}
+                    render={<Link href={tier.name === "Enterprise" ? "#waitlist" : "/onboarding"} />}
                   >
                     {tier.cta}
                   </Button>

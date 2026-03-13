@@ -47,7 +47,7 @@ export default function DashboardLayout({
 
       <div className="lg:pl-64">
         <Header />
-        <main className="px-4 py-4 pb-20 sm:px-6 lg:px-8 lg:pb-6">
+        <main className="px-4 py-4 pb-20 sm:px-6 lg:px-8 lg:pb-6 bg-muted/30">
           <AnimatePresence mode="wait">
             <motion.div
               key={pathname}

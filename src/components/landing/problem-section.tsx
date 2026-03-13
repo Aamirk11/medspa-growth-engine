@@ -35,7 +35,7 @@ export function ProblemSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
-          className="mb-16 text-center"
+          className="mb-10 text-center"
         >
           <span className="mb-3 inline-block rounded-full bg-amber-50 px-4 py-1.5 text-sm font-semibold text-amber-600 dark:bg-amber-950 dark:text-amber-400">
             The Problem

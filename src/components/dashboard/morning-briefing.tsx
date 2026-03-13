@@ -19,8 +19,8 @@ export function MorningBriefing() {
       transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
     >
       <Card className="overflow-hidden border-0 bg-gradient-to-br from-teal-50 to-white dark:from-teal-900/20 dark:to-card">
-        <CardContent className="p-6">
-          <div className="flex items-center gap-3 mb-4">
+        <CardContent className="p-4">
+          <div className="flex items-center gap-3 mb-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
               <Brain className="h-5 w-5 text-primary" />
             </div>
@@ -34,7 +34,7 @@ export function MorningBriefing() {
             </div>
           </div>
 
-          <ul className="space-y-3">
+          <ul className="space-y-2">
             {insights.map((insight, i) => (
               <motion.li
                 key={i}

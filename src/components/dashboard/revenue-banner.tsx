@@ -44,7 +44,7 @@ export function RevenueBanner() {
           exit={{ opacity: 0, y: -20, height: 0 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
         >
-          <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-teal-600 to-teal-700 p-4 text-white shadow-lg dark:from-teal-700 dark:to-teal-800">
+          <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-teal-600 to-teal-700 p-3 text-white shadow-lg dark:from-teal-700 dark:to-teal-800">
             {/* Decorative circles */}
             <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10" />
             <div className="absolute -left-4 -bottom-4 h-16 w-16 rounded-full bg-white/5" />

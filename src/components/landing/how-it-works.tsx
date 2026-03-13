@@ -58,7 +58,7 @@ export function HowItWorks() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
-          className="mb-16 text-center"
+          className="mb-10 text-center"
         >
           <span className="mb-3 inline-block rounded-full bg-teal-50 px-4 py-1.5 text-sm font-semibold text-teal-600 dark:bg-teal-950 dark:text-teal-400">
             Simple Setup
@@ -77,7 +77,7 @@ export function HowItWorks() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="relative grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-8"
+          className="relative grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-8"
         >
           {/* Connecting line (desktop only) */}
           <div className="pointer-events-none absolute left-0 right-0 top-[72px] z-0 hidden md:block">

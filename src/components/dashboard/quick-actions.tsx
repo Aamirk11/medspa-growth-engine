@@ -46,7 +46,7 @@ export function QuickActions() {
         const Icon = action.icon;
         return (
           <Link key={action.href} href={action.href}>
-            <Card className="group h-full cursor-pointer transition-all hover:border-primary/50 hover:shadow-md active:scale-[0.98]">
+            <Card className="group h-full cursor-pointer shadow-sm border transition-all hover:border-primary/50 hover:shadow-md active:scale-[0.98]">
               <CardContent className="flex flex-col items-start gap-3 p-5">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                   <Icon className="h-5 w-5" />

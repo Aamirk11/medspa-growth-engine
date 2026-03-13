@@ -115,7 +115,7 @@ export function Hero() {
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
-            className="mt-10 flex flex-col items-center gap-2"
+            className="mt-8 flex flex-col items-center gap-2"
           >
             <p className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
               Average annual revenue recovered
@@ -133,7 +133,7 @@ export function Hero() {
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
-            className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
+            className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
           >
             <Button
               size="lg"
@@ -172,7 +172,7 @@ export function Hero() {
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
-          className="mx-auto mt-16 max-w-4xl"
+          className="mx-auto mt-12 max-w-4xl"
         >
           <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-white/80 shadow-2xl shadow-teal-600/10 backdrop-blur-sm dark:bg-card/80">
             {/* Window chrome */}

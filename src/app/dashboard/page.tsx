@@ -53,7 +53,7 @@ const stats = [
 
 export default function DashboardPage() {
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <RevenueBanner />
 
       <PageHeader
@@ -80,7 +80,7 @@ export default function DashboardPage() {
       <AIInsights />
 
       {/* Revenue Chart + Live Activity Feed (2-column) */}
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-5">
         <div className="lg:col-span-3">
           <RevenueChart />
         </div>
@@ -90,12 +90,10 @@ export default function DashboardPage() {
       </div>
 
       {/* Morning Briefing + Quick Actions */}
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
         <div className="lg:col-span-2">
-          <div>
-            <h2 className="mb-4 text-base font-semibold">Quick Actions</h2>
-            <QuickActions />
-          </div>
+          <h2 className="mb-3 text-base font-semibold">Quick Actions</h2>
+          <QuickActions />
         </div>
         <div>
           <MorningBriefing />
@@ -103,10 +101,13 @@ export default function DashboardPage() {
       </div>
 
       {/* Treatment Pathway Diagram */}
-      <div>
-        <h2 className="mb-4 text-base font-semibold">Sample Treatment Pathway</h2>
+      <details className="group">
+        <summary className="mb-3 cursor-pointer text-base font-semibold list-none flex items-center gap-2">
+          <span className="transition-transform group-open:rotate-90">&#9654;</span>
+          Sample Treatment Pathway
+        </summary>
         <PathwayDiagram />
-      </div>
+      </details>
     </div>
   );
 }

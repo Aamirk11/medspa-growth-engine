@@ -88,13 +88,13 @@ export function FeaturesSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
           {features.map((feature) => {
             const Icon = feature.icon;
             return (
               <motion.div key={feature.title} variants={itemVariants}>
-                <Card className="group relative h-full border-border/50 bg-card transition-all duration-300 hover:border-teal-200 hover:shadow-lg hover:shadow-teal-100/50 dark:hover:border-teal-800 dark:hover:shadow-teal-900/20">
+                <Card className="group relative h-full shadow-sm border-border/80 bg-card transition-all duration-300 hover:border-teal-200 hover:shadow-lg hover:shadow-teal-100/50 dark:hover:border-teal-800 dark:hover:shadow-teal-900/20">
                   <CardHeader className="space-y-4">
                     <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-50 text-teal-600 ring-1 ring-teal-100 transition-colors group-hover:bg-teal-100 dark:bg-teal-900/30 dark:text-teal-400 dark:ring-teal-800 dark:group-hover:bg-teal-900/50">
                       <Icon className="size-6" />

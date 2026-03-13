@@ -88,7 +88,7 @@ export function WaitlistForm() {
                   onSubmit={handleSubmit}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.3 }}
-                  className="space-y-4 rounded-2xl border border-border/50 bg-card p-6 shadow-lg sm:p-8"
+                  className="space-y-4 rounded-2xl border-2 border-teal-200/60 bg-white p-6 shadow-xl shadow-teal-600/5 sm:p-8 dark:border-teal-800/40 dark:bg-card"
                 >
                   {/* Email */}
                   <div className="space-y-2">

@@ -98,7 +98,7 @@ export function AIInsights() {
   return (
     <Card className="overflow-hidden">
       {/* Teal gradient header */}
-      <div className="bg-gradient-to-r from-teal-600 to-teal-500 dark:from-teal-700 dark:to-teal-600 px-6 py-4">
+      <div className="bg-gradient-to-r from-teal-600 to-teal-500 dark:from-teal-700 dark:to-teal-600 px-6 py-3">
         <div className="flex items-center gap-2.5">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/20">
             <Sparkles className="h-4 w-4 text-white" />
@@ -115,13 +115,13 @@ export function AIInsights() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="space-y-3"
+          className="space-y-2"
         >
           {insights.map((insight) => (
             <motion.div
               key={insight.id}
               variants={itemVariants}
-              className="group relative rounded-lg border bg-card p-4 transition-all hover:shadow-md hover:border-teal-200 dark:hover:border-teal-800"
+              className={`group relative rounded-lg border bg-card p-3 transition-all hover:shadow-md hover:border-teal-200 dark:hover:border-teal-800 ${insight.priority === "high" ? "border-l-4 border-l-red-500" : insight.priority === "medium" ? "border-l-4 border-l-amber-500" : "border-l-4 border-l-blue-500"}`}
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="flex-1 min-w-0">

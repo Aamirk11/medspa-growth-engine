@@ -4,7 +4,6 @@ import { SocialProofBar } from "@/components/landing/social-proof-bar";
 import { ProblemSection } from "@/components/landing/problem-section";
 import { RevenuLeakDiagram } from "@/components/landing/revenue-leak-diagram";
 import { HowItWorks } from "@/components/landing/how-it-works";
-import { BeforeAfter } from "@/components/landing/before-after";
 import { FeaturesSection } from "@/components/landing/features-section";
 import { TestimonialsSection } from "@/components/landing/testimonials-section";
 import { RoiCalculator } from "@/components/landing/roi-calculator";
@@ -70,7 +69,7 @@ function Navbar() {
             Sign In
           </Link>
           <Link
-            href="/dashboard"
+            href="/onboarding"
             className="inline-flex h-9 items-center justify-center rounded-lg bg-teal-600 px-4 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-600"
           >
             Get Started
@@ -85,7 +84,7 @@ function MobileCTA() {
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-border/40 bg-white/90 p-3 backdrop-blur-lg sm:hidden dark:bg-background/90">
       <Link
-        href="/dashboard"
+        href="/onboarding"
         className="flex h-12 w-full items-center justify-center rounded-lg bg-teal-600 text-base font-semibold text-white shadow-lg shadow-teal-600/25 transition-colors hover:bg-teal-700"
       >
         Start Free Trial
@@ -105,7 +104,6 @@ export default function Home() {
         <ProblemSection />
         <RevenuLeakDiagram />
         <HowItWorks />
-        <BeforeAfter />
         <div id="features">
           <FeaturesSection />
         </div>

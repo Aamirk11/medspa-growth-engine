@@ -79,7 +79,7 @@ export function TestimonialsSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="mt-16 grid gap-8 md:grid-cols-3"
+          className="mt-10 grid gap-8 md:grid-cols-3"
         >
           {testimonials.map((testimonial) => (
             <motion.div key={testimonial.name} variants={itemVariants}>

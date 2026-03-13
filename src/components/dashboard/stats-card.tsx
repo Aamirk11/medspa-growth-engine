@@ -37,8 +37,8 @@ export function StatsCard({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
     >
-      <Card className="relative overflow-hidden bg-gradient-to-br from-teal-50/50 to-white dark:from-teal-950/20 dark:to-card hover:scale-[1.02] hover:shadow-md transition-transform">
-        <CardContent className="p-6">
+      <Card className="relative overflow-hidden shadow-sm bg-gradient-to-br from-teal-50/50 to-white dark:from-teal-950/20 dark:to-card hover:scale-[1.02] hover:shadow-md transition-transform">
+        <CardContent className="p-5">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 text-muted-foreground">
               {icon}
@@ -58,9 +58,9 @@ export function StatsCard({
           </div>
 
           <div className="mt-3 flex items-end justify-between">
-            <span className="text-3xl font-bold tracking-tight">{value}</span>
+            <span className="text-4xl font-bold tracking-tight">{value}</span>
 
-            <div className="h-12 w-24 opacity-60">
+            <div className="h-14 w-28 opacity-60">
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={chartData}>
                   <Line
